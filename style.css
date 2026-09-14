@@ -334,8 +334,6 @@ h1,h2,h3{ font-family: var(--font-title); margin:0; font-weight:600; }
   position:absolute; left:0; right:0; bottom:0; padding:10px 14px; font-size:.8rem; font-weight:600;
   color:#fff; background: linear-gradient(180deg, transparent, rgba(0,0,0,.45));
 }
-.gallery-note{ text-align:center; color:#9a90a8; font-size:.85rem; margin-top:20px; }
-
 /* =========================================================
    CONTATO / FOOTER
    ========================================================= */

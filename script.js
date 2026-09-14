@@ -22,24 +22,23 @@ navMobile.querySelectorAll('a').forEach(link => {
 });
 
 // ================= HERO VIDEO CROSSFADE =================
+// Cada vídeo tem loop próprio (nunca para); a cada intervalo alternamos
+// qual dos dois fica visível, criando o efeito de crossfade contínuo.
 const heroVideos = [document.getElementById('hero-video-1'), document.getElementById('hero-video-2')].filter(Boolean);
 if (heroVideos.length === 2) {
   let current = 0;
-  const swap = () => {
+  heroVideos.forEach(video => {
+    video.play().catch(() => {});
+    video.addEventListener('error', () => { video.style.display = 'none'; });
+  });
+  setInterval(() => {
     const next = current === 0 ? 1 : 0;
     heroVideos[next].currentTime = 0;
     heroVideos[next].play().catch(() => {});
     heroVideos[next].classList.add('is-active');
     heroVideos[current].classList.remove('is-active');
     current = next;
-  };
-  heroVideos.forEach((video, i) => {
-    video.addEventListener('ended', swap);
-    video.addEventListener('error', () => {
-      video.style.display = 'none';
-    });
-  });
-  heroVideos[0].play().catch(() => {});
+  }, 9000);
 }
 
 // ================= TABS (SERVIÇOS) =================
